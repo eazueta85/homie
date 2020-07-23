@@ -12,7 +12,7 @@ const Slick = ({photos}) => {
 
   return (
     <SlickWrapper {...settings}>
-     {photos.map( image => <img src={image} alt="" />)}
+     {photos.map( (image, index) => <img key={index} src={image} alt="" loading="lazy" />)}
     </SlickWrapper>
   );
 };

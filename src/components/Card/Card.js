@@ -14,7 +14,6 @@ const Card = ({ active, onMouseOver, property }) => {
     abbr_address,
     bathrooms,
     bedrooms,
-    id,
     is_homie_exclusive,
     parkings,
     pet_friendly,

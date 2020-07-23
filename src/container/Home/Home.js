@@ -13,13 +13,12 @@ const Home = () => {
 
   //Actions
   const loadProperties = () => dispatch(getProperties());
+  //States
+  const properties = useSelector((state) => state.properties.properties);
 
   useEffect(() => {
     loadProperties();
   }, []);
-
-  //States
-  const properties = useSelector((state) => state.properties.properties);
 
   return (
     <Layout>
@@ -27,7 +26,7 @@ const Home = () => {
         <div className="container">
           <div className="row">
             <div className="column">
-              <Toolbar totalProperties = {properties.length} />
+              <Toolbar totalProperties={properties.length} />
               <Propierties properties={properties} />
             </div>
             <div className="column">

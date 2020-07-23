@@ -26,19 +26,19 @@ const Propierties = ({ properties }) => {
   const onChangeMarker = (index, location) => {
     sendActiveProperty({ index, location, active: false });
   };
-  const { index, location, active } = stateActiveProperty.activeProperty;
+  const { index, active } = stateActiveProperty.activeProperty;
 
   useEffect(() => {
     if (index && active === true) {
       scroller.scrollTo(index.toString(), scrollType);
     }
-  }, [stateActiveProperty]);
+  }, [stateActiveProperty, index, active]);
 
   return (
     <PropertiesWrapper>
       {properties.map((property) => {
         return (
-          <Element name={property.id.toString()}>
+          <Element key={property.id} name={property.id.toString()}>
               <Card
                 id={property.id}
                 key={property.id}
