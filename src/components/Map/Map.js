@@ -1,17 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MapWrapper from "./MapWrapper";
 import Marker from "./Marker";
 import FixedMap from "./Map.style";
+
+//Redux
+import { useDispatch, useSelector } from 'react-redux';
+import { activeProperties } from '../../store/actions/activePropertyAction'
 
 const Map = ({ properties }) => {
   const locationCenterDefault = { lat: 19.3207671, lng: -99.2930415 };
   const [locationCenter, setLocationCenter] = useState(locationCenterDefault);
   const [markerIndex, setMarkerIndex] = useState(0);
 
+  const dispatch = useDispatch();
+  //Actions
+  const sendActiveProperty = (property) => dispatch(activeProperties(property))
+  //States
+  const stateActiveProperty = useSelector((state) => state.activeProperty);
+
   const onChangeIcon = (index, location) => {
     setLocationCenter(location);
     setMarkerIndex(index);
+    sendActiveProperty({index, location, active:true})
   };
+
+  useEffect(() => {
+    const { index, location } = stateActiveProperty.activeProperty
+   if(index){
+      setLocationCenter(location);
+      setMarkerIndex(index);
+    }
+
+  },[stateActiveProperty]);
 
   return (
     <div>

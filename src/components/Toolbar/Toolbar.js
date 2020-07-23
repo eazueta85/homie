@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import ToolbarWrapper, { ToolbarInfo, ButtonFilter } from "./Toolbar.style.js";
 
-const Toolbar = () => {
+const Toolbar = ({totalProperties}) => {
+   
   return (
     <ToolbarWrapper>
       <ToolbarInfo>
         <div className="labelCity">Ciudad de México</div>
-        <div className="labelResut">379 Inmuebles</div>
+        <div className="labelResut">{totalProperties} Inmuebles</div>
       </ToolbarInfo>
       <ButtonFilter>
         <FontAwesomeIcon icon={faFilter} />

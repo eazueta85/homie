@@ -1,9 +1,7 @@
 import React from "react";
 import SlickWrapper from "./Slick.style"
 
-import image from "../../assets/images/image-test-card.jpg";
-
-const Slick = () => {
+const Slick = ({photos}) => {
   var settings = {
     dots: false,
     infinite: true,
@@ -14,15 +12,7 @@ const Slick = () => {
 
   return (
     <SlickWrapper {...settings}>
-      <div>
-        <img src={image} alt="" />
-      </div>
-      <div>
-        <img src={image} alt="" />
-      </div>
-      <div>
-        <img src={image} alt="" />
-      </div>
+     {photos.map( image => <img src={image} alt="" />)}
     </SlickWrapper>
   );
 };

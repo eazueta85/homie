@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import Propierties from "../Properties/Propierties";
 import Layout from "../Layout";
 import HomeWrapper, { MapWhapper } from "./Home.style";
 
 //Redux
-import { useDispatch, useSelector, connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProperties } from "../../store/actions/propertyAction";
 
 const Home = () => {
@@ -27,7 +27,7 @@ const Home = () => {
         <div className="container">
           <div className="row">
             <div className="column">
-              <Toolbar />
+              <Toolbar totalProperties = {properties.length} />
               <Propierties properties={properties} />
             </div>
             <div className="column">
