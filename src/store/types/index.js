@@ -1,0 +1,8 @@
+const Types = {
+  //Propierties
+  GET_PROPERTIES: "GET_PROPERTIES",
+  GET_PROPERTIES_SUCCESS: "GET_PROPERTIES_SUCCESS",
+  GET_PROPERTIES_ERROR: "GET_PROPERTIES_ERROR",
+};
+
+export default Types;
