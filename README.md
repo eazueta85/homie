@@ -12,3 +12,5 @@ Proyecto creado en React con Create React App. Para simular las interaciones de 
 - Axios.
 
 Se utilizó el consumo de datos de la API proporcionada por Homie.
+
+Se puede visualizar el funcionamiento del demo en el siguien enlace: [homie.meribyte.com](https://homie.meribyte.com/)
