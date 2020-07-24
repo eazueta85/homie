@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Element, scroller } from "react-scroll";
+import scrollType from "../../library/utils/scroll";
 import Card from "../../components/Card/Card";
 import Paginate from "../../components/Paginate/Paginate";
 import Banner from "../../components/Banner/Banner";
@@ -8,13 +9,6 @@ import PropertiesWrapper from "./Properties.style";
 //Redux
 import { useDispatch, useSelector } from "react-redux";
 import { activeProperties } from "../../store/actions/activePropertyAction";
-
-const scrollType = {
-  duration: 500,
-  delay: 50,
-  smooth: true,
-  offset: -100,
-};
 
 const Propierties = ({ properties }) => {
   const dispatch = useDispatch();
@@ -26,6 +20,7 @@ const Propierties = ({ properties }) => {
   const onChangeMarker = (index, location) => {
     sendActiveProperty({ index, location, active: false });
   };
+
   const { index, active } = stateActiveProperty.activeProperty;
 
   useEffect(() => {
@@ -39,13 +34,13 @@ const Propierties = ({ properties }) => {
       {properties.map((property) => {
         return (
           <Element key={property.id} name={property.id.toString()}>
-              <Card
-                id={property.id}
-                key={property.id}
-                property={property}
-                active={index === property.id && active === true ? true : false}
-                onMouseOver={() => onChangeMarker(property.id, property.location)}
-              />
+            <Card
+              id={property.id}
+              key={property.id}
+              property={property}
+              active={index === property.id && active === true ? true : false}
+              onMouseOver={() => onChangeMarker(property.id, property.location)}
+            />
           </Element>
         );
       })}

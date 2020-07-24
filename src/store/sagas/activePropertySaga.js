@@ -11,7 +11,7 @@ function* activePropertiesSaga(data) {
     const activeProperty = data.data
     yield put(activePropertiesSuccess(activeProperty));
   } catch (error) {
-    yield put(activePropertiesError);
+    yield put(activePropertiesError(error));
   }
 }
 

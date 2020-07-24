@@ -6,7 +6,7 @@ const PaginateWrapper = styled.div`
   text-align: center;
 `;
 
-export const PrevPage = styled.div`
+export const PrevPage = styled.a`
   content: "";
   display: inline-block;
   height: 33px;
@@ -21,7 +21,7 @@ export const PrevPage = styled.div`
   background: url("/assets/images/grey-left-arrow.svg") center center no-repeat;
 `;
 
-export const NextPage = styled.div`
+export const NextPage = styled.a`
   content: "";
   display: inline-block;
   height: 33px;
