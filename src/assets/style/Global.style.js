@@ -71,7 +71,8 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     overflow: hidden;
     background-color: #fff;
-  } 
+  }
+
 }
 
 `;

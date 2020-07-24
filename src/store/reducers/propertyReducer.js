@@ -17,12 +17,15 @@ export default function (state = initialState, action) {
     case Types.GET_PROPERTIES_SUCCESS:
       return {
         ...state,
-        properties: action.data ,
+        loading: false,
+        error: false,
+        properties: action.data,
       };
     case Types.GET_PROPERTIES_ERROR:
       return {
         ...state,
-        error: action.error ,
+        loading: false,
+        error: action.error,
       };
     default:
       return state;

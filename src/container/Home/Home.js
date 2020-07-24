@@ -3,13 +3,12 @@ import { Element, scroller } from "react-scroll";
 import Layout from "../Layout";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import Propierties from "../Properties/Propierties";
-import scrollType from "../../library/utils/scroll"
+import scrollType from "../../library/utils/scroll";
 import HomeWrapper, { MapWhapper } from "./Home.style";
 
 //Redux
 import { useDispatch, useSelector } from "react-redux";
 import { getProperties } from "../../store/actions/propertyAction";
-
 
 const Home = () => {
   const [currentProperties, setCurrentProperties] = useState([]);
@@ -19,20 +18,20 @@ const Home = () => {
   const loadProperties = () => dispatch(getProperties());
 
   //States
-  const properties = useSelector((state) => state.properties.properties);
+  const propertiesState = useSelector((state) => state.properties);
   const paginate = useSelector((state) => state.paginateProperty);
 
-  const indexOfLastAll = paginate.currentPage * paginate.totalPerPage;
-  const indexOfFirstAll = indexOfLastAll - paginate.totalPerPage;
+  const { loading, properties } = propertiesState;
 
   useEffect(() => {
     loadProperties();
   }, []);
 
   useEffect(() => {
+    const indexOfLastAll = paginate.currentPage * paginate.totalPerPage;
+    const indexOfFirstAll = indexOfLastAll - paginate.totalPerPage;
     const currentTotal = () =>
       setCurrentProperties(properties.slice(indexOfFirstAll, indexOfLastAll));
-
     currentTotal();
     scroller.scrollTo("top", scrollType);
   }, [paginate, properties]);
@@ -44,6 +43,11 @@ const Home = () => {
           <div className="row">
             <div className="column">
               <Element name="top">
+                {loading ?
+                  <div className="loaderWrapper">
+                    <div className="loader"></div>
+                  </div>
+                 : null}
                 <Toolbar totalProperties={properties.length} />
                 <Propierties properties={currentProperties} />
               </Element>

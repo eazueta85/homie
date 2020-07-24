@@ -1,7 +1,7 @@
 import React from "react";
-import SlickWrapper from "./Slick.style"
+import SlickWrapper from "./Slick.style";
 
-const Slick = ({photos}) => {
+const Slick = ({ photos }) => {
   var settings = {
     dots: false,
     infinite: true,
@@ -12,7 +12,9 @@ const Slick = ({photos}) => {
 
   return (
     <SlickWrapper {...settings}>
-     {photos.map( (image, index) => <img key={index} src={image} alt="" loading="lazy" />)}
+      {photos.map((image, index) => (
+        <img key={index} src={image} alt="" loading="lazy" />
+      ))}
     </SlickWrapper>
   );
 };
